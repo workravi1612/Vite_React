@@ -15,7 +15,7 @@ function Button(){
 
     return(
         <button style={styles} onClick={ () => handleClick2("Hey")}>Click me</button>
-        // <button onClick={handleClick2("Hey")}>Click me</button>
+        // <button onClick={handleClick}>Click me</button>
     )
 
 }
