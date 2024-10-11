@@ -8,6 +8,7 @@
 import List from "./List.jsx";
 
 function App() {
+  
   const fruits = [
     { id: 1, name: "apple", calories: 95 },
     { id: 2, name: "orange", calories: 45 },
@@ -41,8 +42,13 @@ function App() {
     <Student />
     <UserGreeting isLoggedIn={true} username="Ravi"/> */}
       </>
-      {fruits.length > 0 ? <List items={fruits} category="Fruits" /> : null}
-      {vegitables.length > 0 ? <List items={vegitables} category="Vegitables" /> : null}
+      {/* //conditonal rendering Examples  */}
+      {/* {fruits.length > 0 ? <List items={fruits} category="Fruits" /> : null}
+      {vegitables.length > 0 ? <List items={vegitables} category="Vegitables" /> : null} */}
+
+      {/* //conditonal rendering Examples **and short circuiting**  */}
+      {fruits.length > 0 && <List items={fruits} category="Fruits" />}
+      {vegitables.length > 0 && <List items={vegitables} category="Vegitables" />}
     </>
   );
 }
