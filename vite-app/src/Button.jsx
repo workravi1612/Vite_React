@@ -9,8 +9,13 @@ function Button(){
             border: "none",
             cursor: "pointer",
     }
+
+    const handleClick = () => console.log("OUCH !")
+    const handleClick2 = (name) => console.log(`${name} stop clicking me`)
+
     return(
-        <button style={styles}>Click me</button>
+        <button style={styles} onClick={ () => handleClick2("Hey")}>Click me</button>
+        // <button onClick={handleClick2("Hey")}>Click me</button>
     )
 
 }
