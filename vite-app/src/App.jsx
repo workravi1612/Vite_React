@@ -7,7 +7,8 @@
 // import UserGreeting from'./UserGreeting.jsx'
 // import List from "./List.jsx";
 // import ProfilePicture from "./ProfilePicture.jsx";
-import MyComponent from "./MyComponent";
+// import MyComponent from "./MyComponent";
+import Counter from "./Counter";
 
 function App() {
   
@@ -55,8 +56,9 @@ function App() {
       </>
       <>
       {/* <Button /> 
-      <ProfilePicture />*/}
-      <MyComponent />
+      <ProfilePicture />
+      <MyComponent />*/}
+      <Counter />
       </>
     </>
   );
