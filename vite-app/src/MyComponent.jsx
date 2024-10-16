@@ -60,7 +60,6 @@ function MyComponent() {
 
   function handleShippingChange(event) {
     setShipping(event.target.value);
-    console.log(event.target.value)
   }
   return (
     <div>
