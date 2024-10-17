@@ -117,7 +117,6 @@ margin: 0;
 .counter-button:hover{
     background-color: hsl(197, 100%, 48%);
 }
-*/
 
 body{
     font-family: Arial, sans-serif;
@@ -166,3 +165,4 @@ input[type="color"]{
     border-radius: 10px;
     border: 3px solid hsl(0, 0%, 80%);
 }
+*/
