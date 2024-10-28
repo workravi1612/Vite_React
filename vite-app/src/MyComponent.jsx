@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // useState example
 // function MyComponent(){
@@ -184,58 +184,141 @@ import React, { useState } from "react";
 
 //Update ARRAY of OBJECTS in state
 
+// function MyComponent() {
+//   const [cars, setCars] = useState([]);
+//   const [carYear, setCarYear] = useState(new Date().getFullYear());
+//   const [carMake, setCarMake] = useState("");
+//   const [carModel, setCarModel] = useState("");
+
+//   function handleAddCar() {
+//     const newCar = { year: carYear, make: carMake, model: carModel };
+//    setCars(c => [...c, newCar])
+
+//    setCarYear(new Date().getFullYear())
+//    setCarMake("")
+//    setCarModel("")
+
+//   }
+//   function handleRemoveCar(index) {
+//     setCars(c => c.filter((_, i) => i !== index))
+//   }
+//   function handleYearChange(event) {
+//     setCarYear(event.target.value);
+//   }
+//   function handleMakeChange(event) {
+//     setCarMake(event.target.value);
+//   }
+//   function handleModelChange(event) {
+//     setCarModel(event.target.value);
+//   }
+
+//   return (
+//     <div>
+//       <h2>List of car Objects</h2>
+//       <ul>
+//         {cars.map((car, index) => <li key={index} onClick={() => handleRemoveCar(index)}>{car.year} {car.make} {car.model}</li>)}
+//       </ul>
+//       <input type="number" value={carYear} onChange={handleYearChange} /> <br />
+//       <input
+//         type="text"
+//         value={carMake}
+//         onChange={handleMakeChange}
+//         placeholder="Enter car make"
+//       />{" "}
+//       <br />
+//       <input
+//         type="text"
+//         value={carModel}
+//         onChange={handleModelChange}
+//         placeholder="Enter car model"
+//       />{" "}
+//       <br />
+//       <button onClick={handleAddCar}> Add Car</button>
+//     </div>
+//   );
+// }
+
+// export default MyComponent;
+
+// useEffect() : React hook that tells React DO SOME CODE WHEN (pick one):
+//              This component re-renders
+//              This component mounts
+//              aThe state of the value
+
+//useEffect(function, [dependencies])
+
+// 1. useEffect(() => {})                        Runs after every re-render
+// 2. useEffect(() => {}, [])                    Runs only on the mount
+// 3. useEffect(() => {}, [value])               Runs on mount + when value changes
+
+//USES
+// 1) Event listeners
+// 2) DOM manipulation
+// 3) Subscriptions (real-time updates)
+// 4) Fetching Data from an API
+// 5) Clean up when component unmounts
+
+// function MyComponent() {
+//   const [count, setCount] = useState(0);
+//   const [color, setColor] = useState("green");
+
+//   useEffect(() => {
+//     document.title = `Count: ${count} ${color}`;
+
+      // return() => {
+      //   //cleanup 
+      // }
+//   }, [count, color]);
+
+//   function addCount() {
+//     setCount(c => c + 1);
+//   }
+//   function subtractCount() {
+//     setCount(c => c - 1);
+//   }
+//   function changeColor() {
+//     setColor(c => c ==="green" ? "red" : "green")
+//   }
+//   return (
+//     <>
+//       <p style={{color: color}}>Count: {count}</p>
+//       <button onClick={addCount}>Add</button>
+//       <button onClick={subtractCount}>Subtract</button>
+//       <br />
+//       <button onClick={changeColor}>Change Color</button>
+//     </>
+//   );
+// }
 function MyComponent() {
-  const [cars, setCars] = useState([]);
-  const [carYear, setCarYear] = useState(new Date().getFullYear());
-  const [carMake, setCarMake] = useState("");
-  const [carModel, setCarModel] = useState("");
 
-  function handleAddCar() {
-    const newCar = { year: carYear, make: carMake, model: carModel };
-   setCars(c => [...c, newCar])
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
 
-   setCarYear(new Date().getFullYear())
-   setCarMake("")
-   setCarModel("")
+  // without useEffect()
+  // window.addEventListener("resize", handleResize)
 
-  }
-  function handleRemoveCar(index) {
-    setCars(c => c.filter((_, i) => i !== index))
-  }
-  function handleYearChange(event) {
-    setCarYear(event.target.value);
-  }
-  function handleMakeChange(event) {
-    setCarMake(event.target.value);
-  }
-  function handleModelChange(event) {
-    setCarModel(event.target.value);
-  }
+// with useEffect()
+useEffect(() => {
+  window.addEventListener("resize", handleResize)
+  console.log("Event Listener Added")
 
-  return (
-    <div>
-      <h2>List of car Objects</h2>
-      <ul>
-        {cars.map((car, index) => <li key={index} onClick={() => handleRemoveCar(index)}>{car.year} {car.make} {car.model}</li>)}
-      </ul>
-      <input type="number" value={carYear} onChange={handleYearChange} /> <br />
-      <input
-        type="text"
-        value={carMake}
-        onChange={handleMakeChange}
-        placeholder="Enter car make"
-      />{" "}
-      <br />
-      <input
-        type="text"
-        value={carModel}
-        onChange={handleModelChange}
-        placeholder="Enter car model"
-      />{" "}
-      <br />
-      <button onClick={handleAddCar}> Add Car</button>
-    </div>
-  );
+  return () => {
+    window.removeEventListener("resize", handleResize)
+  console.log("Event Listener Removed")
+  }
+}, [])
+
+  useEffect(() => {
+    document.title = `Height: ${height} & Width: ${width}`;
+  }, [width , height])
+  function handleResize(){
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  }
+  
+  return(<>
+  <p>Window Width: {width}px</p>
+  <p>Window Height: {height}px</p>
+  </>);
 }
-
 export default MyComponent;
