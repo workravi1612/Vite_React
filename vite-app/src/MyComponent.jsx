@@ -289,36 +289,40 @@ import React, { useState, useEffect } from "react";
 //     </>
 //   );
 // }
-function MyComponent() {
 
-  const [width, setWidth] = useState(window.innerWidth);
-  const [height, setHeight] = useState(window.innerHeight);
+//   useEffect EXAMPLES
+// function MyComponent() {
 
-  // without useEffect()
-  // window.addEventListener("resize", handleResize)
+//   const [width, setWidth] = useState(window.innerWidth);
+//   const [height, setHeight] = useState(window.innerHeight);
 
-// with useEffect()
-useEffect(() => {
-  window.addEventListener("resize", handleResize)
-  console.log("Event Listener Added")
+//   // without useEffect()
+//   // window.addEventListener("resize", handleResize)
 
-  return () => {
-    window.removeEventListener("resize", handleResize)
-  console.log("Event Listener Removed")
-  }
-}, [])
+// // with useEffect()
+// useEffect(() => {
+//   window.addEventListener("resize", handleResize)
+//   console.log("Event Listener Added")
 
-  useEffect(() => {
-    document.title = `Height: ${height} & Width: ${width}`;
-  }, [width , height])
-  function handleResize(){
-    setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
-  }
+//   return () => {
+//     window.removeEventListener("resize", handleResize)
+//   console.log("Event Listener Removed")
+//   }
+// }, [])
+
+//   useEffect(() => {
+//     document.title = `Height: ${height} & Width: ${width}`;
+//   }, [width , height])
+//   function handleResize(){
+//     setWidth(window.innerWidth);
+//     setHeight(window.innerHeight);
+//   }
   
-  return(<>
-  <p>Window Width: {width}px</p>
-  <p>Window Height: {height}px</p>
-  </>);
-}
-export default MyComponent;
+//   return(<>
+//   <p>Window Width: {width}px</p>
+//   <p>Window Height: {height}px</p>
+//   </>);
+// }
+// export default MyComponent;
+
+
