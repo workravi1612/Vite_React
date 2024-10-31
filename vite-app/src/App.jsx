@@ -7,12 +7,12 @@
 // import UserGreeting from'./UserGreeting.jsx'
 // import List from "./List.jsx";
 // import ProfilePicture from "./ProfilePicture.jsx";
-import MyComponent from "./MyComponent.jsx";
+// import MyComponent from "./MyComponent.jsx";
 // import Counter from "./Counter.jsx";
 // import ColorPicker from "./ColorPicker.jsx";
 
 
-function App() {
+// function App() {
   
   // const fruits = [
   //   { id: 1, name: "apple", calories: 95 },
@@ -29,7 +29,7 @@ function App() {
   //   { id: 9, name: "corn", calories: 63 },
   //   { id: 10, name: "broccoli", calories: 50 },
   // ];
-  return (
+  // return (
     <>
       <>
         {/* <Header/>
@@ -60,11 +60,37 @@ function App() {
       {/* <Button /> 
       <ProfilePicture />
       <ColorPicker />
-      <Counter />*/}
-      <MyComponent />
+      <Counter />
+      <MyComponent />*/}
       </>
     </>
-  );
+  // );
+// }
+
+// export default App;
+
+
+// useContext Hook
+// useContext() = React hook that allows to share values between multiple levels of components without passing props through each level
+
+// PROVIDER COMPONENT
+// 1. import { createContext } from "react";
+// 2. export const MyContext = createContext()
+// 3. <MyContext.Provider value={value}>
+//     <Child />
+//    </MyContext.provider>
+
+// CONSUMER COMPONENT
+// 1. import React, { useContext } from "react";
+//    import { MyContext } from "./ComponentA";
+// 2. const value = useContext(MyContext);
+
+
+import React from "react";
+import ComponentA from "./ComponentA.jsx";
+
+function App(){
+  return(<ComponentA />);
 }
 
-export default App;
+export default App
